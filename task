@@ -1,0 +1,43 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Мой TODO-лист")
+root.geometry("400x550")
+root.configure(bg='lightblue')
+
+def add_task():
+    listbox.insert(tk.END, textbox.get())
+
+def get_selected():
+    selected = listbox.curselection()
+    if selected:
+        print("Выбрано:", listbox.get(selected[0]))
+
+def delete():
+    selected = listbox.curselection()
+    if selected:
+        listbox.delete(selected[0])
+
+def delete_all():
+    listbox.delete(0, tk.END)
+
+textbox = tk.Entry(root, width=33, font=("Mistral", 14))
+textbox.pack(padx=10, pady=10)
+
+add_btn = tk.Button(text="Добавить", font=("Arial", 14), command=add_task)
+add_btn.pack(padx=20, pady=10)
+
+listbox = tk.Listbox(root, width=50, height=10)
+listbox.pack(pady=10)
+
+sel_btn = tk.Button(text="Выбрать", font=("Arial", 13), command=get_selected)
+
+delt_btn = tk.Button(text="Удалить", font=("Arial", 14), command=delete)
+delt_btn.pack(padx=20, pady=10)
+
+del_all_btn = tk.Button(text="Очисить всё", font=("Arial", 12), command=delete_all)
+del_all_btn.pack(padx=20, pady=2)
+
+listbox.insert(tk.END, "Элемент 1")
+
+root.mainloop()
