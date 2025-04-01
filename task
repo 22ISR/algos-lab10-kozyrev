@@ -38,6 +38,4 @@ delt_btn.pack(padx=20, pady=10)
 del_all_btn = tk.Button(text="Очисить всё", font=("Arial", 12), command=delete_all)
 del_all_btn.pack(padx=20, pady=2)
 
-listbox.insert(tk.END, "Элемент 1")
-
 root.mainloop()
